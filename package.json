@@ -1,0 +1,35 @@
+{
+  "name": "cubix-nosql-budget",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:css": "npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "electron": "^26.2.4",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "date-fns": "^4.1.0",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.7.3",
+    "numeral": "^2.0.6",
+    "redis": "^4.7.0"
+  }
+}

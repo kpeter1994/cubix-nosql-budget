@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="fill-vertical" lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Költségvetés Applikáció</title>
+
+
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="output.css">
+
+</head>
+
+<body>
+
+    <div class="p-12 flex justify-center items-center bg-slate-50 h-screen">
+        <div class="max-w-4xl p-12 bg-white shadow rounded-3xl">
+
+            <canvas id="myChart" width="400" height="200"></canvas>
+
+            <table class="w-full">
+                <tr>
+                    <th class="p-2" colspan="2">
+                        Tétel
+                    </th>
+                    <th class="p-2">
+                        Összeg
+                    </th>
+                    <th class="p-2">
+                        Művelet
+                    </th>
+                </tr>
+
+                <tr>
+                    <th class="p-2">
+                        Bevétel
+                    </th>
+                    <td class="p-2">
+                        <input id="incomeInputTitle" class="border block active:ring-amber-600 rounded-xl p-3 w-full" type="text">
+                    </td>
+                    <td class="p-2">
+                        <input id="incomeInputValue" class="border block active:ring-amber-600 rounded-xl p-3 w-full" type="number">
+                    </td>
+                    <td class="p-2">
+                        <button onclick="itemController.addIncome()" class="w-full border block bg-green-500 hover:bg-green-600 text-white rounded-xl py-3 px-12">
+                            <i class="fa fa-solid fa-plus"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="p-2">
+                        Kiadás
+                    </th>
+                    <td class="p-2">
+                        <input id="expenseInputTitle" class="border block active:ring-amber-600 rounded-xl w-full p-3" type="text">
+                    </td>
+                    <td class="p-2">
+                        <input id="expenseInputValue" class="border block active:ring-amber-600 rounded-xl w-full p-3" type="number">
+                    </td>
+                    <td class="p-2">
+                        <button onclick="itemController.addExpense()" class="border w-full block active:ring-amber-600 rounded-xl bg-red-500 text-white hover:bg-red-600 py-3 px-12">
+                            <i class="fa fa-solid fa-minus"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Total:</th>
+                    <td colspan="3" class="font-bold p-2 ">
+                        <p class="bg-slate-100 rounded-xl p-3"  id="total"></p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <div class="mt-6">
+                <table class="w-full">
+
+                    <thead>
+                        <tr class="font-bold">
+                            <td>Dátum</td>
+                            <td>Tétel</td>
+                            <td>Kiadás</td>
+                            <td>Bevétel</td>
+                        </tr>
+                    </thead>
+                    <tbody id="item-list">
+
+                    </tbody>
+
+
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        const ItemController = require('../controllers/ItemController.js');
+
+        const itemController = new ItemController();
+
+        itemController.init();
+
+        window.onbeforeunload = function () {
+            chatService.disconnect();
+        }
+    </script>
+</body>
+
+</html>
